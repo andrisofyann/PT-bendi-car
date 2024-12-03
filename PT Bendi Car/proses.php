@@ -2,8 +2,8 @@
 include 'koneksi.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $alamat = $_POST['alamat'];
     $nama = $_POST['nama'];
+    $alamat = $_POST['alamat'];
     $noKTP = $_POST['NoKTP'];
     $noTelp = $_POST['NoTelp'];
     $merek = $_POST['pilihan'];
@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $query = "INSERT INTO penyewaan (alamat, nama, no_ktp, no_telp, merek, tanggal_pengembalian) VALUES (?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO penyewaan ( nama, alamat, no_ktp, no_telp, merek, tanggal_pengembalian) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
 
     $stmt->bind_param("ssssss", $alamat, $nama, $noKTP, $noTelp, $merek, $tglpengembalian);
